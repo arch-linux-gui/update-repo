@@ -36,7 +36,8 @@ cp "$repo/airootfs/etc/systemd/system/etc-pacman.d-gnupg.mount" airootfs/etc/sys
 cp "$repo/.gitignore" .gitignore
 cp "$repo/pacman.conf" pacman.conf
 mkdir -p grub
-cp -r "$repo/grub/*" grub/
+cp -r "$repo/grub/grub.cfg" grub/
+cp -r "$repo/grub/loopback.cfg" grub/
 cp "$repo/airootfs/etc/xdg/reflector/reflector.conf" airootfs/etc/xdg/reflector/
 cp "$repo/airootfs/etc/mkinitcpio.conf" airootfs/etc/
 cp "$repo/airootfs/usr/local/bin/alg-finalisation" airootfs/usr/local/bin/
@@ -54,6 +55,7 @@ cp -r "$repo/airootfs/etc/pacman.conf" airootfs/etc/
 cp -r "$repo/airootfs/etc/skel/.bashrc" airootfs/etc/skel/
 cp -r "$repo/airootfs/etc/systemd/system/dbus-org.freedesktop.timesync1.service" airootfs/etc/systemd/system/
 cp -r "$repo/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf" airootfs/etc/systemd/system/getty@tty1.service.d/
+mkdir -p airootfs/etc/systemd/system/sysinit.target.wants
 cp -r "$repo/airootfs/etc/systemd/system/sysinit.target.wants/systemd-time-wait-sync.service" airootfs/etc/systemd/system/sysinit.target.wants/
 cp -r "$repo/airootfs/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service" airootfs/etc/systemd/system/sysinit.target.wants/
 
