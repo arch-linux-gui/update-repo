@@ -36,7 +36,7 @@ cp "$repo/airootfs/etc/systemd/system/etc-pacman.d-gnupg.mount" airootfs/etc/sys
 cp "$repo/.gitignore" .gitignore
 cp "$repo/pacman.conf" pacman.conf
 mkdir -p grub
-cp "$repo/grub/grub.cfg" grub/
+cp -r "$repo/grub/*" grub/
 cp "$repo/airootfs/etc/xdg/reflector/reflector.conf" airootfs/etc/xdg/reflector/
 cp "$repo/airootfs/etc/mkinitcpio.conf" airootfs/etc/
 cp "$repo/airootfs/usr/local/bin/alg-finalisation" airootfs/usr/local/bin/
@@ -47,12 +47,15 @@ cp -r "$repo/airootfs/etc/systemd/system/multi-user.target.wants/hv_kvp_daemon.s
 cp -r "$repo/airootfs/etc/systemd/system/multi-user.target.wants/hv_vss_daemon.service" airootfs/etc/systemd/system/multi-user.target.wants/
 cp -r "$repo/airootfs/etc/systemd/system/multi-user.target.wants/vmtoolsd.service" airootfs/etc/systemd/system/multi-user.target.wants/
 cp -r "$repo/airootfs/etc/systemd/system/multi-user.target.wants/vmware-vmblock-fuse.service" airootfs/etc/systemd/system/multi-user.target.wants/
-cp "$repo/airootfs/etc/systemd/system/livecd-alsa-unmuter.service" airootfs/etc/systemd/system/
-cp "$repo/airootfs/etc/systemd/system/livecd-talk.service" airootfs/etc/systemd/system/
-cp "$repo/airootfs/etc/systemd/system/pacman-init.service" airootfs/etc/systemd/system/
-cp "$repo/airootfs/etc/pacman.conf" airootfs/etc/
-cp "$repo/airootfs/etc/skel/.bashrc" airootfs/etc/skel/
-cp "$repo/airootfs/etc/systemd/system/dbus-org.freedesktop.timesync1.service" airootfs/etc/systemd/system/
+cp -r "$repo/airootfs/etc/systemd/system/livecd-alsa-unmuter.service" airootfs/etc/systemd/system/
+cp -r "$repo/airootfs/etc/systemd/system/livecd-talk.service" airootfs/etc/systemd/system/
+cp -r "$repo/airootfs/etc/systemd/system/pacman-init.service" airootfs/etc/systemd/system/
+cp -r "$repo/airootfs/etc/pacman.conf" airootfs/etc/
+cp -r "$repo/airootfs/etc/skel/.bashrc" airootfs/etc/skel/
+cp -r "$repo/airootfs/etc/systemd/system/dbus-org.freedesktop.timesync1.service" airootfs/etc/systemd/system/
+cp -r "$repo/airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf" airootfs/etc/systemd/system/getty@tty1.service.d/
+cp -r "$repo/airootfs/etc/systemd/system/sysinit.target.wants/systemd-time-wait-sync.service" airootfs/etc/systemd/system/sysinit.target.wants/
+cp -r "$repo/airootfs/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service" airootfs/etc/systemd/system/sysinit.target.wants/
 
 # Remove specified packages from packages.x86_64
 sed -i '/ipw2100-fw/d' packages.x86_64
